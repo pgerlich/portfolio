@@ -21,10 +21,10 @@ zip-real:
 	rm -rf build
 
 sass:
-	sass --sourcemap=none ./lib/src/ui/sass/main.scss ./lib/out/main.css
+	sass --sourcemap=none ./lib/src/ui/sass/main.scss ./lib/out/assets/css/main.css
 
 run-sass:
-	sass --sourcemap=none --watch ./lib/src/ui/sass/main.scss:./lib/out/main.css
+	sass --sourcemap=none --watch ./lib/src/ui/sass/main.scss:./lib/out/assets/css/main.css
 
 lint:
 	./node_modules/.bin/eslint ./lib/src/ui
