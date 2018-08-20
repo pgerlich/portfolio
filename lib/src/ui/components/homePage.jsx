@@ -337,6 +337,20 @@ export default class HomepageLayout extends React.Component {
                 <div id="isg-portfolio-container" className="isg-portfolio-container">
 
                     <figure className="isg-portfolio-item" data-filter="wa ma">
+                        <a href="http://ethanalysis.info" target="_BLANK"></a>
+                        <img src="assets/images/portfolio/eth.gif" alt=""/>
+                        <i className="fa fa-search"></i>
+                        <figcaption>
+                            <h4>Ethereum Wallet Analysis</h4>
+                            <p>
+                                Website used to analyze inbound and outbound transactions from an Ethereum Wallet.
+                                Built to be used in analyzing token sale velocity and viability for VC and other investors in the 
+                                cryptocurrency space. Available free of charge!
+                            </p>
+                        </figcaption>
+                    </figure>
+
+                    <figure className="isg-portfolio-item" data-filter="wa ma">
                         <a href="https://github.com/pgerlich/TabSaverAndroid" target="_BLANK"></a>
                         <img src="assets/images/portfolio/tabsaver.jpeg" alt=""/>
                         <i className="fa fa-search"></i>
