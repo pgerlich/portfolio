@@ -107,8 +107,8 @@ export default class HomepageLayout extends React.Component {
                 </div>
                 <h2>TECHNICAL PROFICIENCIES</h2>
                 <p>
-                    I am a diversely skilled and highly experienced engineer with a focus on web development.
-                    Check out my portfolio to see some of my many personal projects.
+                  I have experience with many different languages and frameworks.
+                  With that said, a good engineer can pick up any stack and hit the ground running.
                 </p>
                 <div className="isg-skills">
                     <div className="isg-skillbar" data-percent="100%">
@@ -123,11 +123,23 @@ export default class HomepageLayout extends React.Component {
                         <div className="isg-skillbar-bar"></div>
                         <div className="isg-skill-bar-percent">100%</div>
                     </div>
+                    <div className="isg-skillbar" data-percent="100%">
+                      <div className="isg-skillbar-title"><span>Thrift/Frugal/Rest - API Development</span>
+                      </div>
+                      <div className="isg-skillbar-bar"></div>
+                      <div className="isg-skill-bar-percent">100%</div>
+                    </div>
                     <div className="isg-skillbar" data-percent="95%">
-                        <div className="isg-skillbar-title"><span>React / Flux / Redux</span>
+                        <div className="isg-skillbar-title"><span>React / Redux</span>
                         </div>
                         <div className="isg-skillbar-bar"></div>
                         <div className="isg-skill-bar-percent">95%</div>
+                    </div>
+                    <div className="isg-skillbar" data-percent="95%">
+                      <div className="isg-skillbar-title"><span>HTML/CSS/SASS</span>
+                      </div>
+                      <div className="isg-skillbar-bar"></div>
+                      <div className="isg-skill-bar-percent">95%</div>
                     </div>
                     <div className="isg-skillbar" data-percent="90%">
                         <div className="isg-skillbar-title"><span>Javascript/ES6</span>
@@ -135,29 +147,29 @@ export default class HomepageLayout extends React.Component {
                         <div className="isg-skillbar-bar"></div>
                         <div className="isg-skill-bar-percent">90%</div>
                     </div>
-                    <div className="isg-skillbar" data-percent="90%">
-                        <div className="isg-skillbar-title"><span>Thrift/Frugal/Rest - API Development</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">90%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="85%">
-                        <div className="isg-skillbar-title"><span>HTML/CSS/SASS</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">85%</div>
-                    </div>
                     <div className="isg-skillbar" data-percent="85%">
                         <div className="isg-skillbar-title"><span>AWS Platform</span>
                         </div>
                         <div className="isg-skillbar-bar"></div>
                         <div className="isg-skill-bar-percent">85%</div>
                     </div>
-                    <div className="isg-skillbar" data-percent="70%">
+                    <div className="isg-skillbar" data-percent="80%">
+                      <div className="isg-skillbar-title"><span>Kotlin</span>
+                      </div>
+                      <div className="isg-skillbar-bar"></div>
+                      <div className="isg-skill-bar-percent">80%</div>
+                    </div>
+                    <div className="isg-skillbar" data-percent="75%">
+                      <div className="isg-skillbar-title"><span>Solidity</span>
+                      </div>
+                      <div className="isg-skillbar-bar"></div>
+                      <div className="isg-skill-bar-percent">75%</div>
+                    </div>
+                    <div className="isg-skillbar" data-percent="60%">
                         <div className="isg-skillbar-title"><span>Java</span>
                         </div>
                         <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">70%</div>
+                        <div className="isg-skill-bar-percent">60%</div>
                     </div>
                     <div className="isg-skillbar" data-percent="60%">
                         <div className="isg-skillbar-title"><span>ANDRIOD SDK</span>
@@ -168,6 +180,21 @@ export default class HomepageLayout extends React.Component {
                 </div>
                 <hr/>
                 <h2>EDUCATION</h2>
+                <div className="isg-resume-box">
+                  <div className="isg-resume-title">
+                    <div className="isg-title-container">
+                      <h6>Master of Computer Science - University of Illinois Champaign-Urbana</h6>
+                      <p><strong>2018 to 2020</strong></p>
+                    </div>
+                    <div className="isg-resume-date">2018</div>
+                  </div>
+                  <div className="isg-resume-content">
+                    <ul>
+                      <li>GPA: 4.0</li>
+                      <li>Emphasis on Data Science</li>
+                    </ul>
+                  </div>
+                </div>
                 <div className="isg-resume-box">
                     <div className="isg-resume-title">
                         <div className="isg-title-container">
@@ -336,6 +363,19 @@ export default class HomepageLayout extends React.Component {
                 </ul>
                 <div id="isg-portfolio-container" className="isg-portfolio-container">
 
+                  <figure className="isg-portfolio-item" data-filter="wa ma">
+                    <a href="http://www.creatra.io" target="_BLANK"></a>
+                    <img src="assets/images/portfolio/creatra.png" alt=""/>
+                    <i className="fa fa-search"></i>
+                    <figcaption>
+                      <h4>Creatra</h4>
+                      <p>
+                        Exploration of the application of blockchain, machine learning, and natural language processing to streamline the patent prosecution process.
+                        Returning the power of innovation back to the inventor.
+                      </p>
+                    </figcaption>
+                  </figure>
+
                     <figure className="isg-portfolio-item" data-filter="wa ma">
                         <a href="http://ethanalysis.info" target="_BLANK"></a>
                         <img src="assets/images/portfolio/eth.gif" alt=""/>
@@ -343,7 +383,7 @@ export default class HomepageLayout extends React.Component {
                         <figcaption>
                             <h4>Ethereum Wallet Analysis</h4>
                             <p>
-                                Website used to analyze inbound and outbound transactions from an Ethereum Wallet.
+                                Simple website used to analyze inbound and outbound transactions from an Ethereum Wallet.
                                 Built to be used in analyzing token sale velocity and viability for VC and other investors in the 
                                 cryptocurrency space. Available free of charge!
                             </p>
