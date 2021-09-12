@@ -1,6 +1,6 @@
 import React from "react";
 import $ from 'jquery';
-  
+
 
 // TODO: Parameterize skills, blog URL, Jobs, etc.
 
@@ -44,7 +44,7 @@ export default class HomepageLayout extends React.Component {
                         <div className="isg-loading-sub-text">Software Engineer</div>
                     </div>
                 </div>
-            
+
                 <div className="isg-loading-bar"></div>
             </div>,
             <div id="isg-overlay" key='overlay'></div>]
@@ -55,7 +55,7 @@ export default class HomepageLayout extends React.Component {
         let linkedInAddress = "https://www.linkedin.com/in/" + this.props.linkedin;
         let githubAddress = "https://www.github.com/" + this.props.github;
 
-    
+
         return (
             <header id="isg-header">
                 <div className="isg-intro">
@@ -85,8 +85,130 @@ export default class HomepageLayout extends React.Component {
             <div id="isg-panels">
                 {this.renderResumePanel()}
                 {this.renderPortfolioPanel()}
-            </div>  
+            </div>
         );
+    }
+
+    renderSkill(skill, percent) {
+        const percentStr = `${percent}%`;
+
+        return (
+          <div className="isg-skillbar" data-percent={percentStr}>
+              <div className="isg-skillbar-title"><span>{skill}</span>
+              </div>
+              <div className="isg-skillbar-bar"></div>
+              <div className="isg-skill-bar-percent">{percentStr}</div>
+          </div>
+        );
+    }
+
+    renderExperienceItem(title, dateRange, date, description) {
+        return (
+          <div className="isg-resume-box">
+              <div className="isg-resume-title">
+                  <div className="isg-title-container">
+                      <h6>{title}</h6>
+                      <p><strong>{dateRange}</strong></p>
+                  </div>
+                  <div className="isg-resume-date">{date}</div>
+              </div>
+              <div className="isg-resume-content">
+                  <p>
+                      {description}
+                  </p>
+              </div>
+          </div>
+        )
+    }
+
+    renderTechnicalProficiencies(){
+        return (<>
+              <h2>TECHNICAL PROFICIENCIES</h2>
+              <p>
+                  I have experience with many different languages and frameworks.
+                  With that said, a good engineer can pick up any stack and hit the ground running.
+              </p>
+              <div className="isg-skills">
+                  {this.renderSkill("Javascript", "95")}
+                  {this.renderSkill("React/Redux", "95")}
+                  {this.renderSkill("HTML/CSS/SASS", "95")}
+                  {this.renderSkill("Python", "90")}
+                  {this.renderSkill("Dart", "85")}
+                  {this.renderSkill("Thrift/Frugal", "80")}
+                  {this.renderSkill("RESTful API development", "95")}
+                  {this.renderSkill("AWS Infrastructure", "70")}
+                  {this.renderSkill("Docker", "85")}
+                  {this.renderSkill("K8s", "70")}
+                  {this.renderSkill("Kotlin/Java/JVM", "75")}
+              </div>
+            </>
+        )
+    }
+
+    renderEduction(){
+        return (
+          <>
+              <h2>EDUCATION</h2>
+              <div className="isg-resume-box">
+                  <div className="isg-resume-title">
+                      <div className="isg-title-container">
+                          <h6>Master of Computer Science - University of Illinois Champaign-Urbana</h6>
+                          <p><strong>2018 to 2020</strong></p>
+                      </div>
+                      <div className="isg-resume-date">2018</div>
+                  </div>
+                  <div className="isg-resume-content">
+                      <ul>
+                          <li>GPA: 3.7</li>
+                          <li>Emphasis on Data Science & AI/ML</li>
+                      </ul>
+                  </div>
+              </div>
+              <div className="isg-resume-box">
+                  <div className="isg-resume-title">
+                      <div className="isg-title-container">
+                          <h6>B.S Software Engineering - Iowa State University</h6>
+                          <p><strong>2012 to 2016</strong></p>
+                      </div>
+                      <div className="isg-resume-date">2016</div>
+                  </div>
+                  <div className="isg-resume-content">
+                      <ul>
+                          <li>GPA: 3.52</li>
+                          <li>2x President, NORML ISU</li>
+                          <li>1x Scholarship Director, Alpha Sigma Phi</li>
+                          <li>1x Webmaster, Government Student Body</li>
+                      </ul>
+                  </div>
+              </div>
+          </>
+        )
+    }
+
+    renderExperience(){
+        return (
+          <>
+              <h2>EXPERIENCE</h2>
+              {this.renderExperienceItem(
+                "Workiva - Senior Software Engineer, Technical Lead",
+                "January 2019 to September 2019",
+                "2017",
+                `
+                  At Workiva I was a full stack developer in Dart/React/Flux and Python.
+                  I spent my time split between proofing out and developing APIs and working on their microservice oriented back end and developing scaleable graph-database backed UI components.
+                  `
+              )}
+              {this.renderExperienceItem(
+                "Founder, Software Engineer - G&G Software",
+                "January 2016 to July 2017",
+                "2016",
+                `
+                   A friend and I started a software consulting firm to develop web and mobile applications for startups.
+                            This is the origin of Waterless Buddys (see my portfolio).
+                  `
+              )}
+          </>
+        )
     }
 
     renderResumePanel(){
@@ -105,231 +227,11 @@ export default class HomepageLayout extends React.Component {
                 <div>
                     <a href="assets/files/resume.pdf" className="isg-button primary resume">Download Resume</a>
                 </div>
-                <h2>TECHNICAL PROFICIENCIES</h2>
-                <p>
-                  I have experience with many different languages and frameworks.
-                  With that said, a good engineer can pick up any stack and hit the ground running.
-                </p>
-                <div className="isg-skills">
-                    <div className="isg-skillbar" data-percent="100%">
-                        <div className="isg-skillbar-title"><span>Dart</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">100%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="100%">
-                        <div className="isg-skillbar-title"><span>Python</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">100%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="100%">
-                      <div className="isg-skillbar-title"><span>Thrift/Frugal/Rest - API Development</span>
-                      </div>
-                      <div className="isg-skillbar-bar"></div>
-                      <div className="isg-skill-bar-percent">100%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="95%">
-                        <div className="isg-skillbar-title"><span>React / Redux</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">95%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="95%">
-                      <div className="isg-skillbar-title"><span>HTML/CSS/SASS</span>
-                      </div>
-                      <div className="isg-skillbar-bar"></div>
-                      <div className="isg-skill-bar-percent">95%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="90%">
-                        <div className="isg-skillbar-title"><span>Javascript/ES6</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">90%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="85%">
-                        <div className="isg-skillbar-title"><span>AWS Platform</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">85%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="80%">
-                      <div className="isg-skillbar-title"><span>Kotlin</span>
-                      </div>
-                      <div className="isg-skillbar-bar"></div>
-                      <div className="isg-skill-bar-percent">80%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="75%">
-                      <div className="isg-skillbar-title"><span>Solidity</span>
-                      </div>
-                      <div className="isg-skillbar-bar"></div>
-                      <div className="isg-skill-bar-percent">75%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="60%">
-                        <div className="isg-skillbar-title"><span>Java</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">60%</div>
-                    </div>
-                    <div className="isg-skillbar" data-percent="60%">
-                        <div className="isg-skillbar-title"><span>ANDRIOD SDK</span>
-                        </div>
-                        <div className="isg-skillbar-bar"></div>
-                        <div className="isg-skill-bar-percent">60%</div>
-                    </div>
-                </div>
+                {this.renderTechnicalProficiencies()}
                 <hr/>
-                <h2>EDUCATION</h2>
-                <div className="isg-resume-box">
-                  <div className="isg-resume-title">
-                    <div className="isg-title-container">
-                      <h6>Master of Computer Science - University of Illinois Champaign-Urbana</h6>
-                      <p><strong>2018 to 2020</strong></p>
-                    </div>
-                    <div className="isg-resume-date">2018</div>
-                  </div>
-                  <div className="isg-resume-content">
-                    <ul>
-                      <li>GPA: 4.0</li>
-                      <li>Emphasis on Data Science</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>B.S Software Engineering - Iowa State University</h6>
-                            <p><strong>2012 to 2016</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2016</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <ul>
-                            <li>GPA: 3.52</li>
-                            <li>2x President, NORML ISU</li>
-                            <li>1x Scholarship Director, Alpha Sigma Phi</li>
-                            <li>1x Webmaster, Government Student Body</li>
-                        </ul>
-                    </div>
-                </div>
+                {this.renderEduction()}
                 <hr/>
-                <h2>EXPERIENCE</h2>
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Softare Engineer - Workiva</h6>
-                            <p><strong>January 2016 to Present</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2017</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            At Workiva I do full stack web development in Dart/React/Flux and Python.
-                            I spend my time split between proofing out and developing APIs and working on our microservice oriented back end and developing scaleable graph-database backed UI components.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Founder - TabSaver, LLC</h6>
-                            <p><strong>January 2016 to July 2017</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2016</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            I founded a mobile app company in college to help people find drink deals in their area.
-                            We achieved 5000+ downloads between iPhone and Android and extended into 5 states.
-                            We proofed out a business intelligence platform to sell deal success metrics back to the bars.
-                            This venture ended as the real world began, but it was very valuable experience. 
-                            You can find all of my code in my portfolio.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Founder, Software Engineer - G&G Software</h6>
-                            <p><strong>January 2016 to July 2017</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2016</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            A friend and I started a software consulting firm to develop web and mobile applications for startups.
-                            This is the origin of Waterless Buddys (see my portfolio).
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Research Assistant- Iowa State University</h6>
-                            <p><strong>August 2015 to May 2016</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2016</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            I spent time mining and analyzing large data sets.
-                            The two major datasets we analyzed were USPTO applications/issued patents, and tripadvisor reviews.
-                            We used various machine learning algorithms to experiment with text analysis.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Teaching Assistant- Iowa State University</h6>
-                            <p><strong>August 2015 to December 2016</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2015</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            I led lab session for our Android development class (Embedded Systems II).
-                            I also led 1 (of 3) weekly classes of 60+ students demonstrating various portions of the Android SDK to assist with hands on learning.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Application Development Intern - General Mills</h6>
-                            <p><strong>May 2015 to August 2015</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2015</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            At General Mills I worked in Angular and C# to build out a parts tracking system for their machinery.
-                            I also expanded an SSRS report saving/sharing application to make it more scaleable.
-                        </p>
-                    </div>
-                </div>
-
-                <div className="isg-resume-box">
-                    <div className="isg-resume-title">
-                        <div className="isg-title-container">
-                            <h6>Software Engineering Intern - Kingland Systems</h6>
-                            <p><strong>May 2014 to May 2015</strong></p>
-                        </div>
-                        <div className="isg-resume-date">2014</div>
-                    </div>
-                    <div className="isg-resume-content">
-                        <p>
-                            At Kingland Systems I created an end-to-end newhire portal to collect newhire data. 
-                            This saved hundreds of HR man hours and interfaced with the Active Directory and Dynamics GP to automate
-                            the creation of new hire accounts.
-                        </p>
-                    </div>
-                </div>
+                {this.renderExperience()}
             </div>
         </article>
         );
@@ -359,7 +261,7 @@ export default class HomepageLayout extends React.Component {
                     <li data-filter="ml">Machine Learning</li>
                     <li data-filter="dm">Data Mining / Collection</li>
                     <li data-filter="ma">Mobile Applications</li>
-                    <li data-filter="es">Embedded Systems</li>                    
+                    <li data-filter="es">Embedded Systems</li>
                 </ul>
                 <div id="isg-portfolio-container" className="isg-portfolio-container">
 
@@ -384,7 +286,7 @@ export default class HomepageLayout extends React.Component {
                             <h4>Ethereum Wallet Analysis</h4>
                             <p>
                                 Simple website used to analyze inbound and outbound transactions from an Ethereum Wallet.
-                                Built to be used in analyzing token sale velocity and viability for VC and other investors in the 
+                                Built to be used in analyzing token sale velocity and viability for VC and other investors in the
                                 cryptocurrency space. Available free of charge!
                             </p>
                         </figcaption>
@@ -411,13 +313,13 @@ export default class HomepageLayout extends React.Component {
                         <figcaption>
                             <h4>Buddys</h4>
                             <p>
-                                Created a website and mobile applications for an on-demand car washing startup out of North Carolina. 
+                                Created a website and mobile applications for an on-demand car washing startup out of North Carolina.
                                 Implemented complete peer 2 peer payment system similar to Uber.
                                 Created full admin dashboard for viewing business intelligence data.
                             </p>
                         </figcaption>
                     </figure>
-                    
+
                     <figure className="isg-portfolio-item" data-filter="wa">
                         <a href="http://law-gineer.net" target="_BLANK"></a>
                         <img src="assets/images/portfolio/lawgineer.png" alt=""/>
@@ -465,7 +367,7 @@ export default class HomepageLayout extends React.Component {
                         </figcaption>
                     </figure>
 
-                    
+
                     <figure className="isg-portfolio-item" data-filter="wa">
                         <a href="https://github.com/pgerlich/interview" target="_BLANK"></a>
                         <img src="assets/images/portfolio/prep4tech.png" alt=""/>
@@ -474,7 +376,7 @@ export default class HomepageLayout extends React.Component {
                             <h4>Prep 4 Tech</h4>
                             <p>Cloud based p2p interview preperation site.
                                 Queue up and join live coding interviews with your peer.
-                                Contains video & audio feed with real time code editor. 
+                                Contains video & audio feed with real time code editor.
                             </p>
                         </figcaption>
                     </figure>
@@ -516,7 +418,7 @@ export default class HomepageLayout extends React.Component {
                     </figure>
                 </div>
             </div>
-        </article>  
+        </article>
         );
     }
 
@@ -581,7 +483,7 @@ export default class HomepageLayout extends React.Component {
                         <div className="isg-rotated-text"><span className="isg-rotated-text-inner">{titleText.toUpperCase()}</span></div>
                     </div>
                 </a>
-            </div>  
+            </div>
         );
     }
 
@@ -591,16 +493,16 @@ export default class HomepageLayout extends React.Component {
                 <div className="isg-footer-inner">
                     <p>{this.props.name} | {this.props.email}</p>
                 </div>
-            </footer>  
+            </footer>
         );
     }
 
     /**
      * Used to inject scripts into the DOM
-     * @param {*} source 
+     * @param {*} source
      */
     _createAndInjectScript(source){
-        let script = document.createElement("script");        
+        let script = document.createElement("script");
         script.src = source;
         document.body.appendChild(script);
     }
